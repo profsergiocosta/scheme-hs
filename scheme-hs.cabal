@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 8ffc3b0b6f5d730feb128f015fd738843290005b7d3120a8ac9c6b58e377ef4d
+-- hash: 45b02c9435ea09c9ea2dd93a09e449f0d70225717e837514b7be8d6061d8a58d
 
 name:           scheme-hs
 version:        0.1.0.0
@@ -28,12 +28,16 @@ source-repository head
 library
   exposed-modules:
       Lib
+      LispVal
   other-modules:
       Paths_scheme_hs
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , containers
+    , mtl
+    , text
   default-language: Haskell2010
 
 executable scheme-hs-exe
@@ -45,7 +49,10 @@ executable scheme-hs-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
+    , mtl
     , scheme-hs
+    , text
   default-language: Haskell2010
 
 test-suite scheme-hs-test
@@ -58,5 +65,8 @@ test-suite scheme-hs-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
+    , mtl
     , scheme-hs
+    , text
   default-language: Haskell2010

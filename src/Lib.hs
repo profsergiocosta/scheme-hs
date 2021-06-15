@@ -1,10 +1,11 @@
-
 {-# LANGUAGE OverloadedStrings #-}
-import Data.Text as T
 
 module Lib
-    ( someFunc
-    ) where
+  ( someFunc,
+  )
+where
+
+import Data.Text as T
 
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
