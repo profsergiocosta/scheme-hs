@@ -1,0 +1,13 @@
+# Cabal
+dist-newstyle/
+*.hi
+*.o
+*.dyn_hi
+*.dyn_o
+.ghc.environment.*
+cabal.project.local
+cabal.project.local~
+
+# Editor/OS cruft
+*~
+.DS_Store

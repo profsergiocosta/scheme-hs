@@ -1,0 +1,60 @@
+cabal-version:      2.4
+name:               scheme-hs
+version:            0.1.0.0
+synopsis:           A Scheme interpreter in Haskell
+description:
+    A Scheme interpreter following "Write Yourself a Scheme in 48 Hours",
+    with variables, closures, conditionals, and a REPL. See README.md.
+homepage:           https://github.com/profsergiocosta/scheme-hs
+bug-reports:        https://github.com/profsergiocosta/scheme-hs/issues
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Sergio Costa
+maintainer:         skosta@gmail.com
+copyright:          2021 Sergio Costa
+build-type:         Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type:     git
+  location: https://github.com/profsergiocosta/scheme-hs
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    hs-source-dirs:   src
+    default-language: Haskell2010
+    exposed-modules:
+        LispVal
+        Parser
+    build-depends:
+        base       >= 4.7 && < 5,
+        containers,
+        mtl,
+        parsec,
+        text
+
+executable scheme-hs-exe
+    import:           warnings
+    hs-source-dirs:   app
+    main-is:          Main.hs
+    default-language: Haskell2010
+    ghc-options:      -threaded -rtsopts -with-rtsopts=-N
+    build-depends:
+        base >= 4.7 && < 5,
+        scheme-hs
+
+test-suite scheme-hs-test
+    import:           warnings
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Spec.hs
+    default-language: Haskell2010
+    ghc-options:      -threaded -rtsopts -with-rtsopts=-N
+    build-depends:
+        base >= 4.7 && < 5,
+        scheme-hs
